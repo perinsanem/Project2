@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='site.css') }}"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse custom-navbar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Sahibinden</a>
+    </div>
+   
+    <form class="navbar-form navbar-left" action="{{ url_for('search') }}" method="GET">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search" name="query">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</nav>
+
+<h3>{{ product[2] }}</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <img src="{{ url_for('static', filename=product[6]) }}" alt="Product Image" class="img-responsive2">
+    </div>
+    <div class="col-md-6">
+      <p><strong>Name/No:</strong> {{ product[1] }}</p>
+      <p><strong>Description:</strong> {{ product[3] }}</p>
+      <p><strong>Price:</strong> ${{ product[4] }}</p>
+      <p><strong>Location:</strong> {{ product[5] }}</p>
+      <p><strong>Category:</strong> {{ product[7] }}</p>
+     
+      <a href="{{ url_for('index') }}" class="btn btn-primary go-back-button">Go Back</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

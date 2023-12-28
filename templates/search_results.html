@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Search Results</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='site.css') }}"> 
+</head>
+<body>
+
+<h1>Search Results</h1>
+<p class="search-results-info">Showing results for: {{ query }}</p>
+<div class="container">
+  <div class="search-results-container">
+      {% for product in results %}
+          <div class="search-result-item">
+              <a href="{{ url_for('product_details', product_id=product[0]) }}">
+                  <img src="{{ url_for('static', filename=product[6]) }}" alt="Product Image" class="img-responsive3">
+              </a>
+          </div>
+      {% endfor %}
+  </div>
+</div>
+
+
+</body>
+</html>
